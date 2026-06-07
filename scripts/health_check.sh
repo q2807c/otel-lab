@@ -4,7 +4,7 @@ set -uo pipefail
 
 check() {
   local name=$1 url=$2
-  if curl -fsS -o /dev/null --max-time 3 "$url"; then
+  if curl -fsS --noproxy '*' -o /dev/null --max-time 3 "$url"; then
     echo "  ✅ $name  ($url)"
   else
     echo "  ❌ $name  ($url)"
